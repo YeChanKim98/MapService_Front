@@ -11,3 +11,111 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.showReview{
+  /* 오버레이에 올린 후 고정 크기 필요없음 : 100% 로 부모 오버레이에 맞출예정 */
+  width : 350px;
+  height: 500px;
+  overflow: auto;
+  margin-bottom:10px;
+  border: 2px solid rgb(188, 235, 188);
+}
+
+.review{
+  /* border : 1px solid black; */
+  width : 250px;
+  padding-left: 20px;
+  word-break:keep-all;
+  margin-bottom: 20px;
+  border-radius: .4em;
+  
+}
+
+/* 리뷰목록 */
+.reviewUser{
+  padding-left: 5px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  }
+
+.reviewContent_Bad {
+  position:relative;
+  width:250px;
+  height:40px;
+  padding-left: 10px;
+  background:rgb(255, 161, 161);
+  border-radius: 5px;
+}
+.reviewContent_Bad:after {
+  border-top:15px solid rgb(255, 161, 161);
+  border-left: 15px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  content:"";
+  position:absolute;
+  top:10px;
+  left:-15px;
+}
+
+.reviewContent_Good {
+  position:relative;
+  width:250px;
+  height:40px;
+  padding-left: 10px;
+  background:rgb(180, 218, 250);
+  border-radius: 5px;
+}
+.reviewContent_Good:after {
+  border-top:15px solid rgb(180, 218, 250);
+  border-left: 15px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  content:"";
+  position:absolute;
+  top:10px;
+  left:-15px;
+}
+
+.review .reviewDate{
+  text-align: right;
+}
+
+.writeForm{
+  width : 350px;
+  height: 500px;
+}
+
+.writeForm form input{
+  margin-right: 3px;
+}
+
+/* 추비추 선택 버튼 숨기기 */
+label input{
+  display: none;
+}
+
+.recmndGood{ /*lable로 수정 가능한지 테스트*/
+  margin-right: 20px;
+}
+
+/* 추비추 Sticky */
+#recmndLabel{
+  display: inline-block;
+  position: sticky;
+  top: 91%;
+  left:10px;
+  z-index:1;
+}
+
+/* 추비추 선택 CSS */
+#recmndLabel input + img{
+  width:30px;
+  filter: grayscale(100%);
+}
+
+#recmndLabel input:checked + img{
+  width:35px;
+  filter: grayscale(0%);
+}
