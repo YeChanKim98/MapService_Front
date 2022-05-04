@@ -1,19 +1,18 @@
-import './App.css';
+import './simpleReview.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {Cookies} from "react-cookie";
 import moment from 'moment';
 import 'bulma/css/bulma.min.css';
 import "moment/locale/ko"; // 한국 시간대로(09시간 차), 위 코드와 합칠 수 없다
-
-function App() {
-    
+//CSS로 인한 이름 변경 : review -> +simple
+function SimpleReview() {
     const cookies = new Cookies();
 
     const api = axios.create({
-        baseURL : 'http://localhost:8080'
+        baseURL : 'http://localhost:8080',
+        withCredentials : true
     });
-    api.defaults.withCredentials = true;
 
     let [user_id, setUser_id] = useState("ReactCSSTester");
     let [place_id, setPlace_id] = useState(123456);
@@ -47,7 +46,7 @@ function App() {
         console.log('확인된 세션 정보 : '+window.sessionStorage.getItem('user_id'));
         // 로그인 한 유저일 경우
         renderWrite = 
-            <div className='writeForm'>
+            <div className='writeSimpleForm'>
                 <form method="post" onSubmit={write}>
                     
                         <input type="text" name="content" class="input is-primary" style={{width:'80%', display:'inline' }}
@@ -73,10 +72,10 @@ function App() {
         let getDate = moment(review.review_date).utc().format('lll'); // 위와 같은 코드
         return (
             // 리뷰id를 유니크키로 삼아서 목록 출력 / 추천여부는 name으로 구분
-            <div className="review" key={review.review_id}>
-                <div className="reviewUser">{review.user_id}</div>
-                <div className={"reviewContent_"+review.recmnd}>{review.content}</div>
-                <div className="reviewDate">{getDate}</div>
+            <div className="simpleReview" key={review.review_id}>
+                <div className="simpleReviewUser">{review.user_id}</div>
+                <div className={"simpleReviewContent_"+review.recmnd}>{review.content}</div>
+                <div className="simpleReviewDate">{getDate}</div>
             </div>
         );
     });
@@ -91,7 +90,6 @@ function App() {
         // expire.setMinutes(expire.getMinutes()+60);
         if( recmnd != '' ){ // 추천 비추천 작성 여부
             console.log('리뷰 작성 시도..');
-            console.log('리뷰 작성 시도..  '+recmnd);
             // setMovies([...movies,{title:MovieTitle, year:MovieYear}]);
             // setMovieTitle('');
             // setMovieYear('');
@@ -162,7 +160,7 @@ function App() {
             현재 유저 ID : "TestUser" <br/><br/>
             {/* 현재 장소에 달린 리뷰 목록 */}
             리뷰정보
-            <div className='showReview'>
+            <div className='showSimpleReview'>
                 <label class="recmndGood" id="recmndLabel">
                     <input type="radio" name="recmnd" onChange={(e) => {setRecmnd("Good")}} value="Good" />
                     <img id='recmndImg' name="goodImg" src="img/good.png"></img>
@@ -194,6 +192,6 @@ function App() {
 
 // 정보가 없을 때 추비추 위치 -> top 대신 bottom -값설정
 
-export default App;
+export default SimpleReview;
 
 

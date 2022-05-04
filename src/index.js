@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import SimpleReview from './review/SimpleReview';
+// import Review from './review/Review';
+import Mypage from './mypage/Mypage';
+
 
 ReactDOM.render(
-    <App />,
+  <Mypage/>,
+    // <SimpleReview />,
+    // <GetReview/>,
+    // <Review/>,
   document.getElementById('root')
 );
 
