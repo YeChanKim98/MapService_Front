@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import TestIndex from './index/TestIndex';
 import reportWebVitals from './reportWebVitals';
 // import SimpleReview from './review/SimpleReview';
 // import Review from './review/Review';
-import Mypage from './mypage/Mypage';
+// import Mypage from './mypage/Mypage';
+
+
 
 
 ReactDOM.render(
-  <Mypage/>,
+  <TestIndex/>,
+  // <Mypage/>,
     // <SimpleReview />,
     // <GetReview/>,
     // <Review/>,

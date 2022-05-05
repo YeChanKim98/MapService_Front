@@ -8,7 +8,6 @@ import MySimpleReview from './contents/MySimpleReview';
 import Inquery from './contents/Inquiry';
 import MypageMenu from './MypageMenu';
 import Navbar from '../component/Navbar';
-// import Review from '../review/Review';
 
 
 
